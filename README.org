@@ -8,7 +8,6 @@
 
 #+BEGIN_SRC ruby
 tp Object.constants.grep(/RUBY_/).map { |e| [e, Object.const_get(e)] }.to_h
-
 # >> |---------------------+------------------------------------------------------------|
 # >> |        RUBY_VERSION | 2.5.0                                                      |
 # >> |   RUBY_RELEASE_DATE | 2017-12-25                                                 |

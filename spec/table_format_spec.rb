@@ -93,6 +93,15 @@ EOT
 EOT
     end
 
+    it 'Struct' do
+      Struct.new(:a, :b).new(1, 2).to_h.to_t.should == <<~EOT
+|---+---|
+| a | 1 |
+| b | 2 |
+|---+---|
+EOT
+    end
+
     it 'Others' do
       1.to_t.should be_present
       '1'.to_t.should be_present
