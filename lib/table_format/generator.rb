@@ -23,11 +23,6 @@ module TableFormat
   end
 
   class Generator
-    def self.default_options
-      warn "[DEPRECATED] `TableFormat::Generator.default_options' is deprecated. Use `TableFormat.default_options' instead."
-      TableFormat.default_options
-    end
-
     def initialize(rows, **options)
       @options = TableFormat.default_options.merge(options)
 
