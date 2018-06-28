@@ -3,7 +3,7 @@ require 'active_support/core_ext/string'          # for blank?
 require 'active_support/core_ext/class/attribute' # for class_attribute
 require 'kconv'
 
-module OrgTp
+module TableFormat
   mattr_accessor :default_options do
     {
       markdown: false,
@@ -24,12 +24,12 @@ module OrgTp
 
   class Generator
     def self.default_options
-      warn "[DEPRECATED] `OrgTp::Generator.default_options' is deprecated. Use `OrgTp.default_options' instead."
-      OrgTp.default_options
+      warn "[DEPRECATED] `TableFormat::Generator.default_options' is deprecated. Use `TableFormat.default_options' instead."
+      TableFormat.default_options
     end
 
     def initialize(rows, **options)
-      @options = OrgTp.default_options.merge(options)
+      @options = TableFormat.default_options.merge(options)
 
       if @options[:markdown]
         @options[:intersection] = '|'
@@ -202,13 +202,13 @@ if $0 == __FILE__
     {id: 2, name: 'bob',   description: 'あいうえお'},
     {id: 3, name: 'carol'},
   ]
-  print OrgTp.generate({a: []})
-  print OrgTp.generate([])
-  print OrgTp.generate(rows)
-  print OrgTp.generate({a: 1, b: 2}, header: false)
-  print OrgTp.generate([["a", "b"], ["c", "d"]])
-  print OrgTp.generate([["a", "b"], {"c" => "d"}])
-  print OrgTp.generate({id: 1, created_at: "2000-01-01"})
+  print TableFormat.generate({a: []})
+  print TableFormat.generate([])
+  print TableFormat.generate(rows)
+  print TableFormat.generate({a: 1, b: 2}, header: false)
+  print TableFormat.generate([["a", "b"], ["c", "d"]])
+  print TableFormat.generate([["a", "b"], {"c" => "d"}])
+  print TableFormat.generate({id: 1, created_at: "2000-01-01"})
 end
 # >> |---+----|
 # >> | a | [] |

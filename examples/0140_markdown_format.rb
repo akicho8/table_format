@@ -1,5 +1,5 @@
 $LOAD_PATH << '../lib'
-require 'org_tp'
+require 'table_format'
 
 array = [
   {id: 1, name: 'alice' },
@@ -15,7 +15,7 @@ array.to_t(intersection: '|', cover: false) # => "| id | name  |\n|----|-------|
 puts
 
 # set global options
-OrgTp.default_options.update(intersection: '|', cover: false)
+TableFormat.default_options.update(intersection: '|', cover: false)
 tp array
 
 ######################################## markdown option
@@ -29,7 +29,7 @@ array.to_t(markdown: true) # => "| id | name  |\n|----|-------|\n|  1 | alice |\
 puts
 
 # set global options
-OrgTp.default_options.update(markdown: true)
+TableFormat.default_options.update(markdown: true)
 tp array
 # >> | id | name  |
 # >> |----|-------|

@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-describe OrgTp do
+describe TableFormat do
   require 'tempfile'
   require 'active_support/testing/stream'
   include ActiveSupport::Testing::Stream

@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'org_tp/version'
+require 'table_format/version'
 
 Gem::Specification.new do |spec|
-  spec.name         = 'org_tp'
-  spec.version      = OrgTp::VERSION
+  spec.name         = 'table_format'
+  spec.version      = TableFormat::VERSION
   spec.author       = 'akicho8'
   spec.email        = 'akicho8@gmail.com'
-  spec.homepage     = 'https://github.com/akicho8/org_tp'
-  spec.summary      = 'OrgTp shows text table like emacs org-table for easy reading.'
-  spec.description  = 'OrgTp shows text table like emacs org-table for easy reading.'
+  spec.homepage     = 'https://github.com/akicho8/table_format'
+  spec.summary      = 'TableFormat shows text table like emacs org-table for easy reading.'
+  spec.description  = 'TableFormat shows text table like emacs org-table for easy reading.'
   spec.platform     = Gem::Platform::RUBY
 
   spec.files         = `git ls-files`.split($/)

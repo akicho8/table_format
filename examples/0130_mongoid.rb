@@ -1,7 +1,7 @@
 $LOAD_PATH << '../lib'
 require 'active_record'
 require 'mongoid'
-require 'org_tp'
+require 'table_format'
 
 Mongo::Logger.logger.level = Logger::INFO
 Mongoid::Config.connect_to('test')

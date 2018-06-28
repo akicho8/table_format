@@ -1,11 +1,11 @@
 $LOAD_PATH << '../lib'
-require 'org_tp'
+require 'table_format'
 
 tp 1, intersection_both: '+'
 
-tp OrgTp.default_options
-OrgTp.default_options.update(intersection_both: '+')
-tp OrgTp.default_options
+tp TableFormat.default_options
+TableFormat.default_options.update(intersection_both: '+')
+tp TableFormat.default_options
 
 # >> +---+
 # >> | 1 |

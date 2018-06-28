@@ -1,10 +1,10 @@
-#+html: <a href="https://badge.fury.io/rb/org_tp"><img src="https://badge.fury.io/rb/org_tp.svg" alt="Gem Version" height="18"></a>
-#+html: <a href="https://travis-ci.org/akicho8/org_tp"><img src="https://travis-ci.org/akicho8/org_tp.svg?branch=master" /></a>
-#+html: <a href="https://codeclimate.com/github/akicho8/org_tp/maintainability"><img src="https://api.codeclimate.com/v1/badges/3af6a246ec61ddafd45d/maintainability" /></a>
+#+html: <a href="https://badge.fury.io/rb/table_format"><img src="https://badge.fury.io/rb/table_format.svg" alt="Gem Version" height="18"></a>
+#+html: <a href="https://travis-ci.org/akicho8/table_format"><img src="https://travis-ci.org/akicho8/table_format.svg?branch=master" /></a>
+#+html: <a href="https://codeclimate.com/github/akicho8/table_format/maintainability"><img src="https://api.codeclimate.com/v1/badges/3af6a246ec61ddafd45d/maintainability" /></a>
 
-* OrgTp
+* TableFormat
 
-  OrgTp shows text table like emacs org-table for easy reading.
+  TableFormat shows text table like emacs org-table for easy reading.
 
 #+BEGIN_SRC ruby
 tp Object.constants.grep(/RUBY_/).map { |e| [e, Object.const_get(e)] }.to_h
@@ -27,13 +27,13 @@ tp Object.constants.grep(/RUBY_/).map { |e| [e, Object.const_get(e)] }.to_h
 Install as a standalone gem
 
 #+BEGIN_SRC shell-script
-$ gem install org_tp
+$ gem install table_format
 #+END_SRC
 
 Or install within application using Gemfile
 
 #+BEGIN_SRC shell-script
-$ bundle add org_tp
+$ bundle add table_format
 $ bundle install
 #+END_SRC
 
@@ -169,7 +169,7 @@ tp [{id: 1, name: 'alice'}, {id: 2, name: 'bob'}], intersection: '|', cover: fal
 ** Global Options
 
 #+BEGIN_SRC ruby
-tp OrgTp.default_options
+tp TableFormat.default_options
 # >> |-------------------+-------|
 # >> |          markdown | false |
 # >> |            header |       |
@@ -187,7 +187,7 @@ tp 1
 # >> | 1 |
 # >> |---|
 
-OrgTp.default_options[:intersection_both] = '+'
+TableFormat.default_options[:intersection_both] = '+'
 
 tp 1
 # >> +---+

@@ -1,5 +1,5 @@
 $LOAD_PATH << '../lib'
-require 'org_tp'
+require 'table_format'
 
 tp :ok
 tp 'foo'

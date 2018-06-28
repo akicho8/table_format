@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 require 'active_record'
 
-ActiveRecord::Base.send(:include, OrgTp::ActiveRecord)
+ActiveRecord::Base.send(:include, TableFormat::ActiveRecord)
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
 ActiveRecord::Migration.verbose = false
 
@@ -14,7 +14,7 @@ end
 class User < ActiveRecord::Base
 end
 
-describe OrgTp::ActiveRecord do
+describe TableFormat::ActiveRecord do
   before do
     2.times { |i| User.create!(name: i) }
   end
