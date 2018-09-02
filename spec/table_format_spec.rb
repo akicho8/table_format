@@ -65,6 +65,14 @@ EOT
 EOT
   end
 
+  it 'Convert line breaks to \n' do
+    TableFormat.generate(["a\nb"]).should == <<~'EOT'
+|------|
+| a\nb |
+|------|
+EOT
+  end
+
   describe 'various to_t' do
     it 'hash array' do
       [{a: 1}].to_t.should == <<~EOT

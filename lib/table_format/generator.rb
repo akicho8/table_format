@@ -74,6 +74,16 @@ module TableFormat
         @column_names = all_columns
       end
       @table_rows = @rows.collect { |e| e.values_at(*all_columns) }
+
+      @table_rows = @table_rows.collect do |values|
+        values.collect do |value|
+          if value
+            value = value.to_s
+            value = value.gsub(/\R/, "\\n")
+          end
+          value
+        end
+      end
     end
 
     def all_columns
