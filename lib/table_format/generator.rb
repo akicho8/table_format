@@ -6,7 +6,7 @@ require 'kconv'
 module TableFormat
   mattr_accessor :default_options do
     {
-      markdown: false,
+      markdown: false,       # Same as {intersection: '|', :cover: false}
       header: nil,
       cover: true,
       vertical: '|',
