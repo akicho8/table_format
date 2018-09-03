@@ -14,6 +14,7 @@ module TableFormat
       intersection_both: '|',
       horizon: '-',
       padding: ' ',
+      truncate: 256,
       in_code: Kconv::UTF8,
     }
   end
@@ -80,6 +81,12 @@ module TableFormat
           if value
             value = value.to_s
             value = value.gsub(/\R/, "\\n")
+
+            if @options[:truncate]
+              if value.size > @options[:truncate]
+                value = value[0, @options[:truncate]] + "..."
+              end
+            end
           end
           value
         end

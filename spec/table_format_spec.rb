@@ -73,6 +73,14 @@ EOT
 EOT
   end
 
+  it 'truncate' do
+    TableFormat.generate(["0123"], truncate: 2).should == <<~EOT
+|-------|
+| 01... |
+|-------|
+EOT
+  end
+
   describe 'various to_t' do
     it 'hash array' do
       [{a: 1}].to_t.should == <<~EOT
