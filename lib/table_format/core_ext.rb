@@ -38,7 +38,7 @@ Kernel.class_eval do
 
   def tp(object, **options)
     object.tap do
-      table_format(object).display
+      table_format(object, options).display
     end
   end
 

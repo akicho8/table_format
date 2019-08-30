@@ -17,4 +17,12 @@ describe TableFormat do
     v = Object.new
     quietly { tp v }.should == v
   end
+
+  it 'tp with options' do
+    capture(:stdout) { tp({id: 123}, truncate: 1) }.should == <<~EOT
+|------+------|
+| i... | 1... |
+|------+------|
+EOT
+  end
 end
