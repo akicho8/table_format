@@ -154,7 +154,16 @@ module TableFormat
     end
 
     def str_width(str)
-      str.to_s.kconv(Kconv::EUC, @options[:in_code]).bytesize
+      s = str.to_s
+      x = nil
+      if @options[:in_code] == Kconv::UTF8
+        begin
+          x = s.encode("EUC-JP", "UTF-8", invalid: :replace, undef: :replace, replace: "xx")
+        rescue EncodingError
+        end
+      end
+      x ||= s.kconv(Kconv::EUC, @options[:in_code])
+      x.bytesize
     end
 
     def pre_processes

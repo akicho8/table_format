@@ -150,4 +150,12 @@ EOT
 EOT
     end
   end
+
+  it 'emoji' do
+    "♡".to_t.should == <<~EOT
+|----|
+| ♡ |
+|----|
+EOT
+  end
 end
