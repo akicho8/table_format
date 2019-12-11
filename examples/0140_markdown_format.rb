@@ -31,12 +31,10 @@ puts
 # set global options
 TableFormat.default_options.update(markdown: true)
 tp array
-# >> |----+-------|
 # >> | id | name  |
-# >> |----+-------|
+# >> |----|-------|
 # >> |  1 | alice |
 # >> |  2 | bob   |
-# >> |----+-------|
 # >> 
 # >> | id | name  |
 # >> |----|-------|

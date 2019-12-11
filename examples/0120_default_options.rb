@@ -19,6 +19,7 @@ tp TableFormat.default_options
 # >> | intersection_both | |     |
 # >> |           horizon | -     |
 # >> |           padding |       |
+# >> |          truncate | 256   |
 # >> |           in_code | UTF-8 |
 # >> |-------------------+-------|
 # >> +-------------------+-------+
@@ -30,5 +31,6 @@ tp TableFormat.default_options
 # >> | intersection_both | +     |
 # >> |           horizon | -     |
 # >> |           padding |       |
+# >> |          truncate | 256   |
 # >> |           in_code | UTF-8 |
 # >> +-------------------+-------+

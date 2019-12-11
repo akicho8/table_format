@@ -23,10 +23,16 @@ end
 Object.class_eval do
   def to_t(**options)
     case
+    when respond_to?(:to_a)
+      if false
+        if to_a.first.respond_to?(:attributes)
+          return to_a.collect(&:attributes).to_t(options)
+        end
+      end
+
+      to_a.to_t(options)
     when respond_to?(:to_h)
       to_h.to_t(options)
-    when respond_to?(:to_a)
-      to_a.to_t(options)
     else
       TableFormat.generate([{self.class.name => self}], {header: false}.merge(options))
     end
