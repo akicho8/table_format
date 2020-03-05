@@ -19,8 +19,8 @@ module TableFormat
     }
   end
 
-  def self.generate(*args, &block)
-    Generator.new(*args, &block).generate
+  def self.generate(*args, **options)
+    Generator.new(*args, **options).generate
   end
 
   class Generator
