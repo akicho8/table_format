@@ -19,12 +19,12 @@ module TableFormat
     }
   end
 
-  def self.generate(*args, **options)
-    Generator.new(*args, **options).generate
+  def self.generate(rows, options = {})
+    Generator.new(rows, options).generate
   end
 
   class Generator
-    def initialize(rows, **options)
+    def initialize(rows, options = {})
       @options = TableFormat.default_options.merge(options)
 
       if @options[:markdown]

@@ -11,7 +11,7 @@ else
       ::ActiveRecord::Result.include(TableFormat::ActiveRecordResult)
 
       ::ActiveRecord::Relation.class_eval do
-        def to_t(**options)
+        def to_t(options = {})
           TableFormat.generate(to_a.collect(&:attributes), options)
         end
       end
