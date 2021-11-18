@@ -21,6 +21,32 @@ tp Object.constants.grep(/RUBY_/).map { |e| [e, Object.const_get(e)] }.to_h
 # >> |---------------------+------------------------------------------------------------|
 #+END_SRC
 
+  In the case of Rails
+
+#+BEGIN_SRC ruby
+class ApplicationController < ActionController::Base
+  if Rails.env.development?
+    before_action do
+      logger.debug params.to_unsafe_h.to_t(truncate: 40)
+    end
+  end
+end
+#+END_SRC
+
+#+BEGIN_SRC shell
+% cat log/development.log
+Started POST "/api/xy_master/time_records" for ::1 at 2021-11-18 13:52:25 +0900
+Processing by Api::XyMaster::TimeRecordsController#create as JSON
+  Parameters: (snip)
+|-------------+---------------------------------------------|
+|   scope_key | scope_today                                 |
+| time_record | {"rule_key"=>"rule100t", "spent_sec"=>0,... |
+|      format | json                                        |
+|  controller | api/xy_master/time_records                  |
+|      action | create                                      |
+|-------------+---------------------------------------------|
+#+END_SRC
+
 ** Installation
 
 Install as a standalone gem
