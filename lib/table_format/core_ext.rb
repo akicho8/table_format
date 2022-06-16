@@ -39,7 +39,7 @@ Object.class_eval do
   end
 end
 
-Kernel.class_eval do
+Kernel.module_eval do
   private
 
   def tp(object, options = {})
