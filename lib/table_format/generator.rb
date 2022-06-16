@@ -27,6 +27,10 @@ module TableFormat
     }
   end
 
+  def self.table_print(str)
+    print str
+  end
+
   def self.generate(rows, options = {})
     Generator.new(rows, options).generate
   end

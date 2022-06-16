@@ -44,7 +44,7 @@ Kernel.module_eval do
 
   def tp(object, options = {})
     object.tap do
-      table_format(object, options).display
+      TableFormat.table_print(table_format(object, options))
     end
   end
 
