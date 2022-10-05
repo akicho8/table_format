@@ -167,6 +167,9 @@ module TableFormat
 
     def str_width(str)
       s = str.to_s
+      if s.encoding == Encoding.find("UTF-8")
+        s = s.gsub(/[ｦ-ﾟ]/, "_") # 2byte char (hankaku katakana) -> 1byte
+      end
       x = nil
       if @options[:in_code] == Kconv::UTF8
         begin

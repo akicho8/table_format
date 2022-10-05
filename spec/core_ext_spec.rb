@@ -25,4 +25,12 @@ describe TableFormat do
 |------+------|
 EOT
   end
+
+  it 'hankaku katakana' do
+    capture(:stdout) { tp("ｱ") }.should == <<~EOT
+|---|
+| ｱ |
+|---|
+EOT
+  end
 end
