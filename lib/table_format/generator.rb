@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+# Workaround of:
+#   uninitialized constant ActiveSupport::XmlMini::IsolatedExecutionState
+begin
+  require "active_support/isolated_execution_state"
+rescue LoadError
+end
+
 require "active_support/core_ext/object/blank" # for blank?
 require "active_support/core_ext/module/attribute_accessors" # for class_attribute
 require "kconv"
