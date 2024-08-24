@@ -1,5 +1,5 @@
-$LOAD_PATH << '../lib'
-require 'table_format'
+$LOAD_PATH << "../lib"
+require "table_format"
 
 TableFormat.default_options.update(truncate: 2)
 

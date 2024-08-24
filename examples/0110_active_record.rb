@@ -1,10 +1,10 @@
-$LOAD_PATH << '../lib'
-require 'active_record'
-require 'table_format'
+$LOAD_PATH << "../lib"
+require "active_record"
+require "table_format"
 
 # tp ::ActiveRecord::Result.ancestors
 
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:")
 ActiveRecord::Migration.verbose = false
 ActiveRecord::Schema.define do
   create_table :users do |t|
@@ -15,7 +15,7 @@ end
 class User < ActiveRecord::Base
 end
 
-['alice', 'bob', 'carol'].each { |e| User.create!(name: e) }
+["alice", "bob", "carol"].each { |e| User.create!(name: e) }
 
 tp User.limit(2)
 
@@ -26,9 +26,9 @@ p User.limit(1).class.name      # => "ActiveRecord::Relation"
 tp User.limit(1)
 puts table_format(User.limit(1))
 
-tp ActiveRecord::Base.connection.select_all('SELECT * FROM users')
-tp ActiveRecord::Base.connection.select_one('SELECT * FROM users')
-tp ActiveRecord::Base.connection.select_value('SELECT 1 + 2')
+tp ActiveRecord::Base.connection.select_all("SELECT * FROM users")
+tp ActiveRecord::Base.connection.select_one("SELECT * FROM users")
+tp ActiveRecord::Base.connection.select_value("SELECT 1 + 2")
 
 puts User.first.to_t
 

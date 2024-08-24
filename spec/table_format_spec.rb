@@ -1,19 +1,19 @@
-require_relative 'spec_helper'
+require_relative "spec_helper"
 
 describe TableFormat do
   before do
     @rows = [
-      {id: 1, name: 'alice', description: '0123456789'},
-      {id: 2, name: 'bob',   description: 'あいうえお'},
-      {id: 3, name: 'bob'},
+      {id: 1, name: "alice", description: "0123456789"},
+      {id: 2, name: "bob",   description: "あいうえお"},
+      {id: 3, name: "bob"},
     ]
   end
 
-  it 'empty array' do
-    TableFormat.generate([]).should == ''
+  it "empty array" do
+    TableFormat.generate([]).should == ""
   end
 
-  it 'default' do
+  it "default" do
     TableFormat.generate(@rows).should == <<~EOT
 |----+-------+-------------|
 | id | name  | description |
@@ -25,7 +25,7 @@ describe TableFormat do
 EOT
   end
 
-  it 'header: false' do
+  it "header: false" do
     TableFormat.generate(@rows, header: false).should == <<~EOT
 |---+-------+------------|
 | 1 | alice | 0123456789 |
@@ -35,8 +35,8 @@ EOT
 EOT
   end
 
-  it 'padding disable' do
-    TableFormat.generate(@rows, padding: '').should == <<~EOT
+  it "padding disable" do
+    TableFormat.generate(@rows, padding: "").should == <<~EOT
 |--+-----+-----------|
 |id|name |description|
 |--+-----+-----------|
@@ -47,8 +47,8 @@ EOT
 EOT
   end
 
-  it 'markdown format' do
-    TableFormat.generate(@rows, intersection: '|', cover: false).should == <<~EOT
+  it "markdown format" do
+    TableFormat.generate(@rows, intersection: "|", cover: false).should == <<~EOT
 | id | name  | description |
 |----|-------|-------------|
 |  1 | alice |  0123456789 |
@@ -65,15 +65,15 @@ EOT
 EOT
   end
 
-  it 'Convert line breaks to \n' do
-    TableFormat.generate(["a\nb"]).should == <<~'EOT'
+  it "Convert line breaks to \n" do
+    TableFormat.generate(['a\nb']).should == <<~'EOT'
 |------|
 | a\nb |
 |------|
 EOT
   end
 
-  it 'truncate' do
+  it "truncate" do
     TableFormat.generate(["0123"], truncate: 2).should == <<~EOT
 |-------|
 | 01... |
@@ -81,8 +81,8 @@ EOT
 EOT
   end
 
-  describe 'various to_t' do
-    it 'hash array' do
+  describe "various to_t" do
+    it "hash array" do
       [{a: 1}].to_t.should == <<~EOT
 |---|
 | a |
@@ -92,7 +92,7 @@ EOT
 EOT
     end
 
-    it 'Hash' do
+    it "Hash" do
       {a: 1}.to_t.should == <<~EOT
 |---+---|
 | a | 1 |
@@ -100,8 +100,8 @@ EOT
 EOT
     end
 
-    it 'String Array' do
-      ['a', 'b'].to_t.should == <<~EOT
+    it "String Array" do
+      ["a", "b"].to_t.should == <<~EOT
 |---|
 | a |
 | b |
@@ -109,7 +109,7 @@ EOT
 EOT
     end
 
-    it 'Struct' do
+    it "Struct" do
       Struct.new(:a, :b).new(1, 2).to_h.to_t.should == <<~EOT
 |---+---|
 | a | 1 |
@@ -118,9 +118,9 @@ EOT
 EOT
     end
 
-    it 'Others' do
+    it "Others" do
       1.to_t.should be_present
-      '1'.to_t.should be_present
+      "1".to_t.should be_present
       Module.new.should be_present
       {[:a] => []}.to_t.should == <<~EOT
 |------+----|
@@ -129,8 +129,8 @@ EOT
 EOT
     end
 
-    it 'Array of hashes and width is correct even when value is array' do
-      TableFormat.generate([{'a' => ['a']}]).should == <<~EOT
+    it "Array of hashes and width is correct even when value is array" do
+      TableFormat.generate([{"a" => ["a"]}]).should == <<~EOT
 |-------|
 | a     |
 |-------|
@@ -139,7 +139,7 @@ EOT
 EOT
     end
 
-    it 'Array containing Hash and others' do
+    it "Array containing Hash and others" do
       TableFormat.generate([["a", "b"], {"c" => "d"}]).should == <<~EOT
 |-----------------+---|
 | (array_element) | c |
@@ -151,7 +151,7 @@ EOT
     end
   end
 
-  it 'emoji' do
+  it "emoji" do
     "♡".to_t.should == <<~EOT
 |----|
 | ♡ |
@@ -159,3 +159,5 @@ EOT
 EOT
   end
 end
+# ~> -:1:in `require_relative': cannot load such file -- /Users/ikeda/src/table_format/spec_helper (LoadError)
+# ~> 	from -:1:in `<main>'

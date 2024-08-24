@@ -3,27 +3,27 @@
 # Workaround of:
 #   uninitialized constant ActiveSupport::XmlMini::IsolatedExecutionState
 begin
-  require 'active_support/isolated_execution_state'
+  require "active_support/isolated_execution_state"
 rescue LoadError
 end
 
-require 'active_support/core_ext/string'          # for blank?
-require 'active_support/core_ext/class/attribute' # for class_attribute
-require 'kconv'
+require "active_support/core_ext/object/blank" # for blank?
+require "active_support/core_ext/module/attribute_accessors" # for class_attribute
+require "kconv"
 
 module TableFormat
   mattr_accessor :default_options do
     {
-      markdown: false,       # Same as {intersection: '|', :cover: false}
-      header: nil,
-      cover: true,
-      vertical: '|',
-      intersection: '+',
-      intersection_both: '|',
-      horizon: '-',
-      padding: ' ',
-      truncate: 256,
-      in_code: Kconv::UTF8,
+      :markdown          => false, # Same as {intersection: "|", :cover: false}
+      :header            => nil,
+      :cover             => true,
+      :vertical          => "|",
+      :intersection      => "+",
+      :intersection_both => "|",
+      :horizon           => "-",
+      :padding           => " ",
+      :truncate          => 256,
+      :in_code           => Kconv::UTF8,
     }
   end
 
@@ -40,7 +40,7 @@ module TableFormat
       @options = TableFormat.default_options.merge(options)
 
       if @options[:markdown]
-        @options[:intersection] = '|'
+        @options[:intersection] = "|"
         @options[:cover] = false
       end
 
@@ -50,7 +50,7 @@ module TableFormat
 
     def generate
       if @rows.blank?
-        return ''
+        return ""
       end
 
       pre_processes.each do |e|
@@ -151,9 +151,9 @@ module TableFormat
       align = (@options[:align] || {}).fetch(all_columns[i]) do
         Float(value) && :right rescue :left
       end
-      space = ' ' * (column_widths[i] - str_width(value))
-      lspace = ''
-      rspace = ''
+      space = " " * (column_widths[i] - str_width(value))
+      lspace = ""
+      rspace = ""
       if align == :right
         lspace = space
       else
@@ -189,10 +189,10 @@ module TableFormat
           header: false,
           process: -> e {
             e.collect do |k, v|
-              {'(key)' => k.to_s, '(value)' => v.to_s}
+              {"(key)" => k.to_s, "(value)" => v.to_s}
             end
           },
-          align: {'(key)' => :right, '(value)' => :left},
+          align: {"(key)" => :right, "(value)" => :left},
         },
 
         # Array of Hash
@@ -208,7 +208,7 @@ module TableFormat
           header: false,
           process: -> e {
             e.collect do |v|
-              {'(array_element)' => v}
+              {"(array_element)" => v}
             end
           },
         },
@@ -222,7 +222,7 @@ module TableFormat
               if v.kind_of? Hash
                 v
               else
-                {'(array_element)' => v}
+                {"(array_element)" => v}
               end
             end
           },
@@ -234,9 +234,9 @@ end
 
 if $0 == __FILE__
   rows = [
-    {id: 1, name: 'alice', description: '0123456789'},
-    {id: 2, name: 'bob',   description: 'あいうえお'},
-    {id: 3, name: 'carol'},
+    { id: 1, name: "alice", description: "0123456789" },
+    { id: 2, name: "bob",   description: "あいうえお" },
+    { id: 3, name: "carol"                            },
   ]
   print TableFormat.generate({a: []})
   print TableFormat.generate([])

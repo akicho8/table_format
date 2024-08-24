@@ -1,4 +1,4 @@
-require 'active_support/core_ext/kernel/concern'
+require "active_support/core_ext/kernel/concern"
 
 module TableFormat
   concern :ActiveRecord do

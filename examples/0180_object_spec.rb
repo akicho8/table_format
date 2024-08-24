@@ -1,6 +1,6 @@
-$LOAD_PATH << '../lib'
-require 'table_format'
-require 'ostruct'
+$LOAD_PATH << "../lib"
+require "table_format"
+require "ostruct"
 
 class C1
   extend Enumerable

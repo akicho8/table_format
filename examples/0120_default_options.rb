@@ -1,10 +1,10 @@
-$LOAD_PATH << '../lib'
-require 'table_format'
+$LOAD_PATH << "../lib"
+require "table_format"
 
-tp 1, intersection_both: '+'
+tp 1, intersection_both: "+"
 
 tp TableFormat.default_options
-TableFormat.default_options.update(intersection_both: '+')
+TableFormat.default_options.update(intersection_both: "+")
 tp TableFormat.default_options
 
 # >> +---+

@@ -1,10 +1,10 @@
-$LOAD_PATH << '../lib'
-require 'active_record'
-require 'mongoid'
-require 'table_format'
+$LOAD_PATH << "../lib"
+require "active_record"
+require "mongoid"
+require "table_format"
 
 Mongo::Logger.logger.level = Logger::INFO
-Mongoid::Config.connect_to('test')
+Mongoid::Config.connect_to("test")
 Mongoid::Clients.default.database.drop
 
 class User
@@ -12,7 +12,7 @@ class User
   field :name, type: String
 end
 
-['alice', 'bob', 'carol'].each { |e| User.create!(name: e) }
+["alice", "bob", "carol"].each { |e| User.create!(name: e) }
 
 tp User
 tp User.first

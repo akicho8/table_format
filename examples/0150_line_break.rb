@@ -1,5 +1,5 @@
-$LOAD_PATH << '../lib'
-require 'table_format'
+$LOAD_PATH << "../lib"
+require "table_format"
 
 tp [
   {id: 1, name: "foo\nbar" },

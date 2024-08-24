@@ -1,21 +1,21 @@
-$LOAD_PATH << '../lib'
-require 'table_format'
+$LOAD_PATH << "../lib"
+require "table_format"
 
 array = [
-  {id: 1, name: 'alice' },
-  {id: 2, name: 'bob'   },
+  {id: 1, name: "alice" },
+  {id: 2, name: "bob"   },
 ]
 
 # tp with options
-tp array, intersection: '|', cover: false
+tp array, intersection: "|", cover: false
 
 # to_t with options
-array.to_t(intersection: '|', cover: false) # => "| id | name  |\n|----|-------|\n|  1 | alice |\n|  2 | bob   |\n"
+array.to_t(intersection: "|", cover: false) # => "| id | name  |\n|----|-------|\n|  1 | alice |\n|  2 | bob   |\n"
 
 puts
 
 # set global options
-TableFormat.default_options.update(intersection: '|', cover: false)
+TableFormat.default_options.update(intersection: "|", cover: false)
 tp array
 
 ######################################## markdown option

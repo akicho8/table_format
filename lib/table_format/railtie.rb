@@ -1,6 +1,6 @@
 module TableFormat
   class Railtie < Rails::Railtie
-    initializer 'table_format' do
+    initializer "table_format" do
       ActiveSupport.on_load(:active_record) do
         include TableFormat::ActiveRecord
         ::ActiveRecord::Result.include TableFormat::ActiveRecordResult
