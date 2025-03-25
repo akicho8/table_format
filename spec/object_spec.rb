@@ -60,10 +60,10 @@ EOT
 EOT
 
     C4.to_t.should == <<~EOT
-|-----------------------------------|
-| #<OpenStruct attributes={:id=>1}> |
-| #<OpenStruct attributes={:id=>2}> |
-|-----------------------------------|
+|----------------------------------|
+| #<OpenStruct attributes={id: 1}> |
+| #<OpenStruct attributes={id: 2}> |
+|----------------------------------|
 EOT
   end
 end
