@@ -55,7 +55,13 @@ tp C4
 # >> |  1 |
 # >> |  2 |
 # >> |----|
-# >> |-----------------------------------|
-# >> | #<OpenStruct attributes={:id=>1}> |
-# >> | #<OpenStruct attributes={:id=>2}> |
-# >> |-----------------------------------|
+# >> |----------------------------------|
+# >> | #<OpenStruct attributes={id: 1}> |
+# >> | #<OpenStruct attributes={id: 2}> |
+# >> |----------------------------------|
+# >> No examples found.
+# >> 
+# >> 
+# >> Finished in 0.00013 seconds (files took 0.04559 seconds to load)
+# >> 0 examples, 0 failures
+# >> 
